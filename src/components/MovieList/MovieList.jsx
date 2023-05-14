@@ -17,12 +17,12 @@ function MovieList() {
 
     // when card is clicked, user routes to movie details: 
     const goToMovieDetails = (movieID) => {
-        history.push(`/details/${movieID}`);
         console.log('This movie ID was clicked:', movieID);
+        history.push(`/details/${movieID}`);
     }
 
     // imported Material UI for CSS formatting; see the Documentation for more info
-    // about each component: 
+    // about each component [https://mui.com/material-ui/react-card/#basic-card]
     return (
         <main>
             <h1>MovieList</h1>
