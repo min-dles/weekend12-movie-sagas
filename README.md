@@ -1,6 +1,6 @@
 # Movie App
 
-This weekend challenge is to expand on a movie management appliation. The website shows a detailed view for each individual movie listed and stored on the database (using Postgres) with the following information for each movie: title, movie poster, description, and genre. There are multiple tables storing the data for each movie that is accessed in this application.
+This weekend challenge is to expand on a movie management application. The website shows a detailed view for each individual movie listed and stored on the database (using Postgres) with the following information for each movie: title, movie poster, description, and genre. There are multiple tables storing the data for each movie that is accessed in this application.
 
 ## Technologies / Languages Used:
 - React-Redux
