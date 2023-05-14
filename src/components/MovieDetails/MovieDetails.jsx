@@ -7,6 +7,7 @@ function MovieDetails() {
     const dispatch = useDispatch();
     const genres = useSelector(store => store.genres);
 
+    // useParams to access the movie ID from the URL:
     let { movieID } = useParams();
     
     useEffect(() => {
