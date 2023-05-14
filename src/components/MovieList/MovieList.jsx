@@ -18,14 +18,20 @@ function MovieList() {
             <Grid container spacing={3}>
                 {movies.map(movie => {
                     return (
-                        <Grid item key={movie.id} >
-                            <Card variant="outlined">
+                        <Grid item 
+                        key={movie.id} 
+                        
+                        >
+                            <Card variant="outlined" sx={{ width: 200, height: 400 }}>
                                 <CardActionArea>
                                     <CardContent>
-                                        <Typography variant="h5">{movie.title}</Typography></CardContent>
+                                        <Typography variant="h6">
+                                            {movie.title}
+                                        </Typography>
+                                    </CardContent>
                                     <CardMedia
                                         component="img"
-                                        height="140"
+                                        height="300"
                                         image={movie.poster}
                                         alt={movie.title} />
                                 </CardActionArea>
