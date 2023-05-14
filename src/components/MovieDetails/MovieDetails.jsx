@@ -12,6 +12,8 @@ function MovieDetails() {
     
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES'});
+        // need to get movie details; testing here:
+        dispatch({ type: 'GET_MV_DETAILS' });
         console.log('Get movie ID from URL:', movieID);
     }, []);
 

@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 // another GET route needed for specific movie details per ID:
 // Tested this SQL query in Postico - all the pertinent movie details
 router.get('/details', (req, res) => {
+  console.log('req.body for GET movie details:', req.body);
   const sqlQuery = `
   SELECT title, poster, description, genres.name
   FROM "movies"
@@ -25,7 +26,7 @@ router.get('/details', (req, res) => {
           ON movies.id=movies_genres.movie_id
         LEFT JOIN genres
           ON movies_genres.genre_id=genres.id
-        WHERE movies.id=($1);
+        WHERE movies.id=16;
   `;
   pool.query(sqlQuery)
     .then( result => {
