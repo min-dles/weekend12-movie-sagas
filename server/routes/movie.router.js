@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
       console.log('ERROR: Get all movies', err);
       res.sendStatus(500)
     })
-
 });
 
 // another GET route needed for specific movie details per ID:
@@ -28,7 +27,7 @@ router.get('/details', (req, res) => {
           ON movies_genres.genre_id=genres.id
         WHERE movies.id=($1);
   `;
-  pool.query(query)
+  pool.query(sqlQuery)
     .then( result => {
       res.send(result.rows);
     }).catch(err => {
