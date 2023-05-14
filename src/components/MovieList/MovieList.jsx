@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './MovieList.css'
+// material UI styling imported for Grid layout:
+import { CardActionArea, Card, CardMedia, CardContent, Grid, Typography } from '@mui/material';
 
 function MovieList() {
 
@@ -14,16 +15,25 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
-            <section className="movies">
+            <Grid container spacing={3}>
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
-                        </div>
+                        <Grid item key={movie.id} >
+                            <Card variant="outlined">
+                                <CardActionArea>
+                                    <CardContent>
+                                        <Typography variant="h5">{movie.title}</Typography></CardContent>
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image={movie.poster}
+                                        alt={movie.title} />
+                                </CardActionArea>
+                            </Card>
+                        </Grid >
                     );
                 })}
-            </section>
+            </Grid>
         </main>
 
     );
