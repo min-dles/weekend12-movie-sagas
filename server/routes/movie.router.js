@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
 // to identify the movie ID from the user-side before it could be 
 // added to the SQL query via ($1) 
 router.get('/details', (req, res) => {
-  console.log('req.query for GET movie details:', req.query);
   const sqlQuery = `
   SELECT title, poster, description, genres.name
   FROM "movies"

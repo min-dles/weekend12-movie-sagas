@@ -18,18 +18,18 @@ function MovieList() {
     // when card is clicked, user routes to movie details: 
     const goToMovieDetails = (movieID) => {
         console.log('This movie ID was clicked:', movieID);
-        let data = { ID: movieID }
+        history.push(`/details/${movieID}`);
+        // let data = { ID: movieID }
 
-        axios({
-            method: 'GET',
-            url: `/api/movie/details`
-        }).then((response) => {
-            console.log('axios call went thru:', response.data);
-            console.log('The data:', data);
-            history.push(`/details/${movieID}`);
-        }).catch((error) => {
-            console.log('error w axios call:', error);
-        })
+        // axios({
+        //     method: 'GET',
+        //     url: `/api/movie/details`
+        // }).then((response) => {
+        //     console.log('axios call went thru:', response.data);
+        //     console.log('The data:', data);
+        // }).catch((error) => {
+        //     console.log('error w axios call:', error);
+        // })
     }
 
     // imported Material UI for CSS formatting; see the Documentation for more info
