@@ -12,6 +12,13 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    // when card is clicked, user routes to movie details: 
+    const goToMovieDetails = (movieID) => {
+        console.log('This was clicked:', movieID);
+    }
+
+    // imported Material UI for CSS formatting; see the Documentation for more info
+    // about each component: 
     return (
         <main>
             <h1>MovieList</h1>
@@ -20,7 +27,7 @@ function MovieList() {
                     return (
                         <Grid item 
                         key={movie.id} 
-                        
+                        onClick={() => goToMovieDetails(movie.id)}
                         >
                             <Card variant="outlined" sx={{ width: 200, height: 400 }}>
                                 <CardActionArea>
