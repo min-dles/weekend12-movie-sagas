@@ -17,8 +17,11 @@ router.get('/', (req, res) => {
 
 // another GET route needed for specific movie details per ID:
 // Tested this SQL query in Postico - all the pertinent movie details
+// NOTE: hard-coded movie id 16 in the SQL query because first needed
+// to identify the movie ID from the user-side before it could be 
+// added to the SQL query via ($1) 
 router.get('/details', (req, res) => {
-  console.log('req.body for GET movie details:', req.body);
+  console.log('req.query for GET movie details:', req.query);
   const sqlQuery = `
   SELECT title, poster, description, genres.name
   FROM "movies"

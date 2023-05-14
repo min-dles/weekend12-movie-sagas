@@ -45,7 +45,7 @@ function* fetchGenres() {
 function* fetchMovieDetails() {
     // get movie details from DB:
     try {
-        const movieDetails = yield axios.get('/api/movie/details');
+        const movieDetails = yield axios.get('/api/movie/details/:id');
         console.log('get movie deets:', movieDetails.data);
         yield put({ type: 'GET_MV_DETAILS', payload: movieDetails.data });
     } catch {
@@ -76,11 +76,22 @@ const genres = (state = [], action) => {
     }
 }
 
+// need to store movie deets:
+const movieDeets = (state = [], action) => {
+    switch (action.type) {
+        case 'GET_MV_DETAILS':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDeets
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
