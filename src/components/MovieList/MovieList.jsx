@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import MovieDetails from '../MovieDetails/MovieDetails';
 // material UI styling imported for Grid layout:
 import { CardActionArea, Card, CardMedia, CardContent, Grid, Typography } from '@mui/material';
 
@@ -16,8 +17,8 @@ function MovieList() {
 
     // when card is clicked, user routes to movie details: 
     const goToMovieDetails = (movieID) => {
-        console.log('This was clicked:', movieID);
-        history.push(`/${movieID}`);
+        history.push(`/details/${movieID}`);
+        console.log('This movie ID was clicked:', movieID);
     }
 
     // imported Material UI for CSS formatting; see the Documentation for more info
