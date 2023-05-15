@@ -22,13 +22,15 @@ router.get('/', (req, res) => {
 // added to the SQL query via ($1) 
 router.get('/details', (req, res) => {
   const sqlQuery = `
-  SELECT title, poster, description, genres.name
+  SELECT title, poster, description, 
+  JSON_AGG(genres.name) AS "genre_s"
   FROM "movies"
         FULL JOIN "movies_genres"
           ON movies.id=movies_genres.movie_id
         LEFT JOIN genres
           ON movies_genres.genre_id=genres.id
-        WHERE movies.id=16;
+        WHERE movies.id=16
+        GROUP BY title, poster, description;
   `;
   pool.query(sqlQuery)
     .then( result => {
